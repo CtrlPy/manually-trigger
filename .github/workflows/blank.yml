@@ -1,15 +1,15 @@
-name: Manually Triggered Workflow
+name: deploy docker images in eks
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'
+      apiTag:
+        description: 'Tag for API Docker image'
         required: true
-        default: 'warning'
-      environment:
-        description: 'Environment to deploy'
-        required: false
-        default: 'staging'
+        default: 'latest'
+      uiTag:
+        description: 'Tag for UI Docker image'
+        required: true
+        default: 'latest'
 jobs:
   build:
     runs-on: ubuntu-latest
